@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html lang="en-US" prefix="og: http://ogp.me/ns#">
+      <head>
+        <meta charset="UTF-8" />
+
+        <link rel='preload' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' as="style"/>
+        
+        <%- preloadJs -%>
+
+        <link rel='preconnect' href='https://cdn.mxpnl.com' crossorigin/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"/>
+
+        <link rel="manifest" href="/manifest.json">
+
+        <meta name="theme-color" content="#00ffc8" />
+        
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <%- documentMeta -%>
+
+
+        <meta name="msapplication-TileImage" content="/resources/logo.svg" />
+
+        <%- appCss -%>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"/>
+        
+      
+        <%- jsBefore -%>
+
+      </head>
+
+
+      <body>
+        <div id="main"><%- markup -%></div>
+
+          <script async id="preloadedData" type="application/json">
+            <%- preloadedData.replace(/\//g, '\\/') %>
+          </script>
+          
+          <script type="text/javascript">
+              // inject the state into the HTML response
+              window.ASYNC_COMPONENTS_STATE = <%- asyncComponentState -%>
+            </script>
+
+          
+          <%- jsMeta -%>
+          <%- jsVendor -%>
+          <%- jsCommon -%>
+          <%- jsBundle -%>
+          <%- jsAfter -%>
+  </body>
+</html>
